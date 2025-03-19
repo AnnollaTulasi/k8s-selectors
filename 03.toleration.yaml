@@ -1,0 +1,25 @@
+# A dedicated worker nodes are assigned for some project so that other projects cnnot be used
+#by adding toleartion it will allow
+# when we add toleration ,even tainted nodes will be considered
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tolerations
+  labels:
+    purpose: "tolerations-demo"
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
