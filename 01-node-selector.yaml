@@ -4,9 +4,9 @@ metadata:
   name: node-selector
   labels:
     purpose: "selector-demo"
-  spec:
-    nodeSelector:
-      topology.kubernetes.io/zone: us-eacst-1c  #we didn't created the node in this AZ and we are expecting to create the pod in this ,it will give error
-    containers:
-    - name: nginx
-      image: nginx
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-eacst-1c  #we didn't created the node in this AZ and we are expecting to create the pod in this ,it will give error
+  containers:
+  - name: nginx
+    image: nginx
